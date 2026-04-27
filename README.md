@@ -79,7 +79,7 @@ The GUI has five tabs, one per entity. Each tab supports:
 
 Additional functionality:
 
-- Movies tab: Search by title (LIKE pattern)
+- Movies tab: Search by title (LIKE pattern). **Rent This Movie** button — select a movie, pick a customer from a dropdown, and the system creates a rental record while decrementing CopiesAvailable.
 - Customers tab: Search by first or last name
-- Rentals tab: Filter active rentals only
+- Rentals tab: Filter active rentals only. **Process Return** button — select an active rental, the system auto-calculates a late fee based on today vs the due date, then creates a Return record, marks the rental as "Returned", and increments CopiesAvailable on the movie.
 - Ratings tab: Filter by movie, compute average score
