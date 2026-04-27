@@ -1,6 +1,6 @@
 # Movie Rental Database System
 
-A three-tier movie rental application built for CS 157A.
+A three-tier movie rental application
 
 - **Presentation Layer:** Java Swing desktop GUI
 - **Application Layer:** Java DAO classes that execute SQL via JDBC
