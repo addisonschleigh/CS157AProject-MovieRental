@@ -34,8 +34,14 @@ CREATE TABLE Rentals (
     RentalDate  DATE         NOT NULL,
     DueDate     DATE         NOT NULL,
     Status      VARCHAR(20)  NOT NULL,
-    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID),
-    FOREIGN KEY (MovieID)    REFERENCES Movies(MovieID)
+    FOREIGN KEY (CustomerID) 
+        REFERENCES Customers(Customer+ID)
+        ON UPDATE CASCADE
+        ON DELETE SET NULL,
+    FOREIGN KEY (MovieID)
+        REFERENCES Movies(MovieID)
+        ON UPDATE CASCADE
+        ON DELETE SET NULL
 );
 
 CREATE TABLE Returns (
@@ -43,7 +49,10 @@ CREATE TABLE Returns (
     RentalID    INT           NOT NULL UNIQUE,
     ReturnDate  DATE          NOT NULL,
     LateFee     DECIMAL(5,2)  NOT NULL,
-    FOREIGN KEY (RentalID) REFERENCES Rentals(RentalID)
+    FOREIGN KEY (RentalID)
+        REFERENCES Rentals(RentalID)
+        ON UPDATE CASCADE
+        ON DELETE SET NULL
 );
 
 CREATE TABLE Ratings (
@@ -52,6 +61,12 @@ CREATE TABLE Ratings (
     MovieID     INT   NOT NULL,
     Score       INT   NOT NULL,
     ReviewDate  DATE  NOT NULL,
-    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID),
-    FOREIGN KEY (MovieID)    REFERENCES Movies(MovieID)
+    FOREIGN KEY (CustomerID)
+        REFERENCES Customers(CustomerID)
+        ON UPDATE CASCADE
+        ON DELETE SET NULL,
+    FOREIGN KEY (MovieID)
+        REFERENCES Movies(MovieID)
+        ON UPDATE CASCADE
+        ON DELETE SET NULL
 );
